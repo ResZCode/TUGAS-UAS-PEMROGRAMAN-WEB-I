@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up Free Fire | Resz.Store</title>
+  <link rel="stylesheet" href="css/topup.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">Resz.Store</div>
+  <nav>
+    <ul class="nav-links" id="navbarLinks"></ul>
+  </nav>
+</header>
+
+<main class="topup-container">
+  <div class="game-tabs">
+    <a href="topup_ml.html" class="tab"><img src="img/ml.png" class="tab-icon"> Mobile Legends</a>
+    <a href="topup_ff.html" class="tab active"><img src="img/ff.png" class="tab-icon"> Free Fire</a>
+    <a href="topup_pubg.html" class="tab"><img src="img/pubg.png" class="tab-icon"> PUBG Mobile</a>
+    <a href="topup_hok.html" class="tab"><img src="img/hok.png" class="tab-icon"> Honor Of Kings</a>
+  </div>
+
+  <section class="game-header">
+    <img src="img/ff.png" alt="Free Fire" class="game-icon">
+    <div>
+      <h2>FREE FIRE</h2>
+      <p>Garena International</p>
+      <div class="badges">
+        <span><i class="fas fa-bolt"></i> Proses Cepat</span>
+        <span><i class="fas fa-globe"></i> Layanan 24 jam</span>
+        <span><i class="fas fa-check-square"></i> Murah dan Terpercaya</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="deskripsi-box">
+    <h3>Cara Transaksi:</h3>
+    <ol>
+      <li>Masukkan Data Akun</li>
+      <li>Pilih Nominal</li>
+      <li>Masukkan Jumlah Pembelian</li>
+      <li>Pilih Pembayaran</li>
+      <li>Masukkan No. WhatsApp</li>
+      <li>Klik Pesan Sekarang</li>
+      <li>Diamond otomatis masuk</li>
+    </ol>
+  </section>
+
+  <form id="topupForm" class="topup-form" action="php/proses_topup.php" method="POST">
+    <input type="hidden" name="game" value="ff">
+    <div class="form-step">
+      <h4>1. Masukkan Data Akun</h4>
+      <input type="text" name="userid" placeholder="Masukkan User ID" required>
+    </div>
+
+    <div class="form-step">
+      <h4>2. Pilih Nominal</h4>
+      <h5 class="sub-title">💎 Top Up Instan</h5>
+      <div class="special-grid">
+        <input type="radio" name="nominal" id="ff10" value="1958">
+        <label for="ff10" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>10 Diamonds</strong><p>Rp 1.958</p></div></label>
+        <input type="radio" name="nominal" id="ff25" value="4895">
+        <label for="ff25" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>25 Diamonds</strong><p>Rp 4.895</p></div></label>
+        <input type="radio" name="nominal" id="ff75" value="11586">
+        <label for="ff75" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>75 Diamonds</strong><p>Rp 11.586</p></div></label>
+        <input type="radio" name="nominal" id="ff120" value="18438">
+        <label for="ff120" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>120 Diamonds</strong><p>Rp 18.438</p></div></label>
+        <input type="radio" name="nominal" id="ff230" value="35738">
+        <label for="ff230" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>230 Diamonds</strong><p>Rp 35.738</p></div></label>
+        <input type="radio" name="nominal" id="ff300" value="46346">
+        <label for="ff300" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>300 Diamonds</strong><p>Rp 46.346</p></div></label>
+        <input type="radio" name="nominal" id="ff400" value="61846">
+        <label for="ff400" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>400 Diamonds</strong><p>Rp 61.846</p></div></label>
+        <input type="radio" name="nominal" id="ff635" value="95466">
+        <label for="ff635" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>635 Diamonds</strong><p>Rp 95.466</p></div></label>
+        <input type="radio" name="nominal" id="ff1000" value="148503">
+        <label for="ff1000" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>1000 Diamonds</strong><p>Rp 148.503</p></div></label>
+        <input type="radio" name="nominal" id="ff2000" value="301514">
+        <label for="ff2000" class="nominal-card"><img src="assets/icons/diamond.png"><div><strong>2000 Diamonds</strong><p>Rp 301.514</p></div></label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <h4>3. Masukkan Jumlah Pembelian</h4>
+      <div class="input-number">
+        <button type="button" class="btn-minus">−</button>
+        <input type="number" name="jumlah" min="1" value="1" required>
+        <button type="button" class="btn-plus">+</button>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <h4>4. Pilih Pembayaran</h4>
+      <div class="pembayaran-grid">
+        <input type="radio" id="dana" name="metode" value="dana"><label for="dana"><img src="img/payment/dana.png" class="pay-icon"> DANA</label>
+        <input type="radio" id="linkaja" name="metode" value="linkaja"><label for="linkaja"><img src="img/payment/linkaja.png" class="pay-icon"> LinkAja</label>
+        <input type="radio" id="ovo" name="metode" value="ovo"><label for="ovo"><img src="img/payment/ovo.png" class="pay-icon"> OVO</label>
+        <input type="radio" id="bri" name="metode" value="bri"><label for="bri"><img src="img/payment/bri.png" class="pay-icon"> BRI</label>
+        <input type="radio" id="bca" name="metode" value="bca"><label for="bca"><img src="img/payment/bca.png" class="pay-icon"> BCA</label>
+        <input type="radio" id="bni" name="metode" value="bni"><label for="bni"><img src="img/payment/bni.png" class="pay-icon"> BNI</label>
+      </div>
+    </div>
+
+    <div class="form-step">
+      <h4>5. Detail Kontak</h4>
+      <input type="text" name="whatsapp" placeholder="Nomor WhatsApp Aktif" required>
+      <small>*Nomor akan dihubungi jika ada masalah</small>
+    </div>
+    <button type="submit" class="pesan-button">Pesan Sekarang!</button>
+  </form>
+</main>
+<footer>
+  <p>&copy; 2025 Resz.Store - All Rights Reserved.</p>
+</footer>
+
+<script src="js/topup.js"></script>
+<script>
+  const navbar = document.getElementById('navbarLinks');
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const username = localStorage.getItem('username');
+  navbar.innerHTML = isLoggedIn ? `
+    <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+    <li><a href="topup_ff.html" class="active"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+    <li><a href="history.html"><i class="fas fa-clock"></i><span>History</span></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+    <li><a href="profile.php?u=${username}"><i class="fas fa-user"></i><span>${username}</span></a></li>
+    <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+  ` : `
+    <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+    <li><a href="topup_ff.html" class="active"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+    <li><a href="history.html"><i class="fas fa-clock"></i><span>History</span></a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+    <li><a href="register.html"><i class="fas fa-user-plus"></i><span>Register</span></a></li>
+  `;
+  function logout(){
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    window.location.href='index.html';
+  }
+</script>
+</body>
+</html>

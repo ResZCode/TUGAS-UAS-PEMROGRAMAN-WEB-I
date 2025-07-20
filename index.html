@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Resz.Store</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%);
+      animation: float 10s ease-in-out infinite;
+      z-index: 0;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+    .game-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    .benefit-item, .testi-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .benefit-item:hover, .testi-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .footer-content {
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Resz.Store</div>
+    <nav>
+      <ul class="nav-links" id="navbarLinks">
+      </ul>
+    </nav>
+  </header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Top Up Diamond Game<br>Murah, Cepat & Aman</h1>
+    <p>Layanan 24 Jam Nonstop. Proses Otomatis & Manual Termurah Sejagad. Langsung Coba Sekarang!</p>
+    <a href="#game-section" class="cta-button icon-top">
+    <i class="fas fa-gem"></i>
+    Top Up Sekarang
+    </a>
+  </div>
+  <img src="img/hero1.jpeg" alt="Gambar Hero" class="hero-img">
+</section>
+
+<section class="game-list" id="game-section">
+  <h2>Game Populer</h2>
+  <div class="game-grid">
+    <div class="game-card">
+      <img src="img/ml.png" alt="Mobile Legends">
+      <p>Mobile Legends</p>
+      <a href="topup_ml.html" class="btn-topup">Top Up</a>
+    </div>
+    <div class="game-card">
+      <img src="img/ff.png" alt="Free Fire">
+      <p>Free Fire</p>
+      <a href="topup_ff.html" class="btn-topup">Top Up</a>
+    </div>
+    <div class="game-card">
+      <img src="img/pubg.png" alt="PUBG Mobile">
+      <p>PUBG Mobile</p>
+     <a href="topup_pubg.html" class="btn-topup">Top Up</a>
+    </div>
+    <div class="game-card">
+      <img src="img/hok.png" alt="Genshin Impact">
+      <p>Honor Of Kings</p>
+      <a href="topup_hok.html" class="btn-topup">Top Up</a>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <h2>Mengapa Pilih Resz.Store?</h2>
+  <div class="benefit-grid">
+    <div class="benefit-item">
+      <i class="fas fa-bolt"></i>
+      <h3>Proses Kilat</h3>
+      <p>Transaksi instan, 24 jam nonstop. Tidak perlu ribet!</p>
+    </div>
+    <div class="benefit-item">
+      <i class="fas fa-tags"></i>
+      <h3>Harga Bersahabat</h3>
+      <p>Harga termurah di pasaran, cocok untuk semua kalangan.</p>
+    </div>
+    <div class="benefit-item">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Terpercaya</h3>
+      <p>Sudah digunakan ribuan gamer, aman & terpercaya.</p>
+    </div>
+    <div class="benefit-item">
+      <i class="fas fa-headset"></i>
+      <h3>Layanan Pelanggan 24/7</h3>
+      <p>Siap bantu kamu kapan saja, masalah cepat teratasi.</p>
+    </div>
+    <div class="benefit-item">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Mudah Diakses</h3>
+      <p>Top up kapan pun lewat smartphone atau PC kamu.</p>
+    </div>
+    <div class="benefit-item">
+      <i class="fas fa-lock"></i>
+      <h3>Keamanan Terjamin</h3>
+      <p>Data dan transaksi kamu kami jaga dengan sistem terbaik.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 Resz.Store - All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbarLinks');
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const username = localStorage.getItem('username');
+
+  if (isLoggedIn) {
+    navbar.innerHTML = `
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="#game-section"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+      <li><a href="history.html"><i class="fas fa-clock"></i><span>History</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="profile.php"><i class="fas fa-user"></i><span>${username}</span></a></li>
+      <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    `;
+  } else {
+    navbar.innerHTML = `
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="#game-section"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+      <li><a href="register.html"><i class="fas fa-user-plus"></i><span>Register</span></a></li>
+    `;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const topupLinks = document.querySelectorAll('.btn-topup');
+    topupLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (!isLoggedIn) {
+          e.preventDefault();
+          alert('⚠️ Anda Harus Login Terlebih Dahulu Untuk Bisa Mengakses Fitur Ini.');
+          window.location.href = 'login.html';
+        }
+      });
+    });
+  });
+
+  function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    window.location.href = 'index.html';
+  }
+</script>

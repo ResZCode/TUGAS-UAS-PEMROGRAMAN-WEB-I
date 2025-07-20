@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Resz.Store</title>
+  <link rel="stylesheet" href="css/register.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Resz.Store</div>
+    <nav>
+      <ul class="nav-links" id="navbarLinks">
+      </ul>
+    </nav>
+  </header>
+
+  <div class="register-container">
+    <form action="php/register.php" method="POST" class="register-form">
+      <h2>Daftar Akun Resz.Store</h2>
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" required />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="nohp">Nomor WhatsApp</label>
+      <input type="tel" name="nohp" id="nohp" required />
+      <button type="submit">Daftar Sekarang</button>
+      <p class="login-link">Sudah Punya Akun? <a href="login.html">Masuk sekarang</a></p>
+    </form>
+  </div>
+
+<script>
+  const navbar = document.getElementById('navbarLinks');
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+  const username = localStorage.getItem('username');
+
+  if (isLoggedIn) {
+    navbar.innerHTML = `
+      <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="topup_ml.html"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+      <li><a href="history.html"><i class="fas fa-clock"></i><span>History</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="profile.php"><i class="fas fa-user"></i><span>${username}</span></a></li>
+      <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    `;
+  } else {
+    navbar.innerHTML = `
+      <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="#" onclick="cekLogin(event)"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+      <li><a href="register.html" class="active"><i class="fas fa-user-plus"></i><span>Register</span></a></li>
+    `;
+  }
+
+  function logout() {
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('username');
+    window.location.href = 'index.html';
+  }
+
+  function cekLogin(e) {
+    e.preventDefault();
+    alert('⚠️ Anda Harus Login Terlebih Dahulu Untuk Bisa Mengakses Fitur Ini.');
+    window.location.href = 'login.html';
+  }
+</script>

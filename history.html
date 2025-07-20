@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History | Resz.Store</title>
+  <link rel="stylesheet" href="css/history.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Resz.Store</div>
+    <nav>
+      <ul class="nav-links" id="navbarLinks"></ul>
+    </nav>
+  </header>
+
+  <main class="history-section">
+    <h2>History Transaksi</h2>
+    <table class="history-table">
+      <thead>
+        <tr>
+          <th>ID Order</th>
+          <th>Tanggal</th>
+          <th>Game</th>
+          <th>Jumlah Item</th>
+          <th>Harga</th>
+          <th>Total</th>
+          <th>Pembayaran</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="riwayatBody">
+        <tr><td colspan="8">Memuat data...</td></tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Resz.Store - All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const currentUser = localStorage.getItem('username');
+
+    fetch('data/transaksi.txt?' + Date.now())
+      .then(res => res.text())
+      .then(data => {
+        const tbody = document.getElementById('riwayatBody');
+        const lines = data.trim().split('\n');
+        const admin = 500;
+        const gameNames = {
+          ml: 'Mobile Legends',
+          ff: 'Free Fire',
+          pubg: 'PUBG Mobile',
+          hok: 'Honor Of Kings'
+        };
+
+        let output = '';
+        let found = false;
+
+        lines.forEach((line, index) => {
+          const parts = line.split('|');
+          if (parts.length !== 10) return;
+          const [tanggal, game, userid, server, harga, jumlah, metode, wa, status, user] = parts;
+          if (user.trim() !== currentUser) return;
+          found = true;
+          const total = (Number(harga) * Number(jumlah)) + admin;
+
+          output += `
+            <tr>
+              <td>#ORD${1000 + index}</td>
+              <td>${new Date(tanggal).toLocaleDateString('id-ID')}</td>
+              <td>${gameNames[game] || game}</td>
+              <td>${jumlah}</td>
+              <td>Rp${Number(harga).toLocaleString('id-ID')}</td>
+              <td>Rp${total.toLocaleString('id-ID')}</td>
+              <td>${metode.toUpperCase()}</td>
+              <td><span class="badge success">Sukses</span></td>
+            </tr>
+          `;
+        });
+
+        tbody.innerHTML = found ? output : '<tr><td colspan="8">Belum ada transaksi untuk akun ini.</td></tr>';
+      })
+      .catch(err => {
+        document.getElementById('riwayatBody').innerHTML =
+          `<tr><td colspan="8">Gagal memuat data</td></tr>`;
+        console.error(err);
+      });
+  </script>
+
+  <script>
+    const navbar = document.getElementById('navbarLinks');
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const username = localStorage.getItem('username');
+
+    navbar.innerHTML = isLoggedIn ? `
+      <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="topup_ml.html"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+      <li><a href="history.html" class="active"><i class="fas fa-clock"></i><span>History</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="profile.php"><i class="fas fa-user"></i><span>${username}</span></a></li>
+      <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+    ` : `
+      <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+      <li><a href="topup_ml.html"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+      <li><a href="history.html" class="active"><i class="fas fa-clock"></i><span>History</span></a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact Us</span></a></li>
+      <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+      <li><a href="register.html"><i class="fas fa-user-plus"></i><span>Register</span></a></li>
+    `;
+
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('username');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

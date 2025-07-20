@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Up Mobile Legends | Resz.Store</title>
+  <link rel="stylesheet" href="css/topup.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Resz.Store</div>
+    <nav>
+      <ul class="nav-links" id="navbarLinks">
+      </ul>
+    </nav>
+  </header>
+
+  <main class="topup-container">
+    <div class="game-tabs">
+      <a href="topup_ml.html" class="tab active">
+        <img src="img/ml.png" alt="MLBB" class="tab-icon"> Mobile Legends
+      </a>
+      <a href="topup_ff.html" class="tab">
+        <img src="img/ff.png" alt="FF" class="tab-icon"> Free Fire
+      </a>
+      <a href="topup_pubg.html" class="tab">
+        <img src="img/pubg.png" alt="PUBG" class="tab-icon"> PUBG Mobile
+      </a>
+      <a href="topup_hok.html" class="tab">
+        <img src="img/hok.png" alt="HOK" class="tab-icon"> Honor Of Kings
+      </a>
+    </div>
+
+      <section class="game-header">
+        <img src="img/ml.png" alt="Mobile Legends" class="game-icon">
+        <div>
+          <h2>MOBILE LEGENDS</h2>
+          <p>Moonton</p>
+          <div class="badges">
+            <span><i class="fas fa-bolt"></i> Proses Cepat</span>
+            <span><i class="fas fa-globe"></i> Layanan 24 jam</span>
+            <span><i class="fas fa-check-square"></i> Murah dan Terpercaya</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="deskripsi-box">
+        <h3>Berikut Adalah Cara Melakukan Transaksi Dengan Benar :</h3>
+        <ol>
+          <li>Masukkan Data Akun</li>
+          <li>Pilih Nominal</li>
+          <li>Masukkan Jumlah Pembelian</li>
+          <li>Pilih Pembayaran</li>
+          <li>Masukkan No. WhatsApp</li>
+          <li>Klik Pesan Sekarang</li>
+          <li>Diamond Otomatis Masuk Ke Akun Game</li>
+        </ol>
+      </section>
+
+      <form id="topupForm" class="topup-form" action="php/proses_topup.php" method="POST">
+        <input type="hidden" name="game" value="ml">
+
+        <div class="form-step">
+          <h4>1. Masukkan Data Akun</h4>
+          <div class="flex-input">
+            <input type="text" name="userid" id="userId" placeholder="Masukkan User ID" required>
+            <input type="text" name="server" id="server" placeholder="Masukkan User Server" required>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <h4>2. Pilih Nominal</h4>
+          <div class="nominal-section">
+            <h5 class="sub-title">🎁 Special Item</h5>
+            <div class="special-grid">
+              <input type="radio" name="nominal" id="pass1" value="27990">
+              <label for="pass1" class="nominal-card">
+                <img src="assets/icons/weekly.png" alt="Weekly Icon">
+                <div>
+                  <strong>Weekly Diamond Pass</strong>
+                  <p>Rp 27.990</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="pass2" value="55979">
+              <label for="pass2" class="nominal-card">
+                <img src="assets/icons/weekly.png" alt="Weekly Icon">
+                <div>
+                  <strong>2x Weekly Pass</strong>
+                  <p>Rp 55.979</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="pass3" value="139947">
+              <label for="pass3" class="nominal-card">
+                <img src="assets/icons/weekly.png" alt="Weekly Icon">
+                <div>
+                  <strong>5x Weekly Pass</strong>
+                  <p>Rp 139.947</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="pass4" value="195936">
+              <label for="pass4" class="nominal-card">
+                <img src="assets/icons/weekly.png" alt="Weekly Icon">
+                <div>
+                  <strong>7x Weekly Pass</strong>
+                  <p>Rp 195.936</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="nominal-section">
+            <h5 class="sub-title">💎 Top Up Instan</h5>
+            <div class="special-grid">
+              <input type="radio" name="nominal" id="dm12" value="3600">
+              <label for="dm12" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>12 Diamonds</strong>
+                  <p>Rp 3.600</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="dm56" value="16400">
+              <label for="dm56" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>56 Diamonds</strong>
+                    <p>Rp 16.400</p>
+                </div>
+                </label>
+              <input type="radio" name="nominal" id="dm86" value="24500">
+              <label for="dm86" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>86 Diamonds</strong>
+                  <p>Rp 24.500</p>
+                </div>
+              </label>
+                <input type="radio" name="nominal" id="dm170" value="48900">
+              <label for="dm170" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>170 Diamonds</strong>
+                    <p>Rp 48.900</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="dm240" value="69900">
+                <label for="dm240" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                    <strong>240 Diamonds</strong>
+                  <p>Rp 69.900</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="dm408" value="122000">
+              <label for="dm408" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>408 Diamonds</strong>
+                  <p>Rp 122.000</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="dm568" value="169000">
+              <label for="dm568" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>568 Diamonds</strong>
+                  <p>Rp 169.000</p>
+                </div>
+                </label>
+              <input type="radio" name="nominal" id="dm875" value="259000">
+              <label for="dm875" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>875 Diamonds</strong>
+                  <p>Rp 259.000</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="dm2010" value="599000">
+                <label for="dm2010" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>2010 Diamonds</strong>
+                  <p>Rp 599.000</p>
+                </div>
+              </label>
+              <input type="radio" name="nominal" id="dm5030" value="1499000">
+              <label for="dm5030" class="nominal-card">
+                <img src="assets/icons/diamond.png" alt="Diamond">
+                <div>
+                  <strong>5030 Diamonds</strong>
+                  <p>Rp 1.499.000</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <h4>3. Masukkan Jumlah Pembelian</h4>
+          <div class="input-number">
+            <button type="button" class="btn-minus">−</button>
+            <input type="number" name="jumlah" min="1" value="1" placeholder="Jumlah Pembelian" required>
+            <button type="button" class="btn-plus">+</button>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <h4>4. Pilih Pembayaran</h4>
+          <div class="pembayaran-grid">
+            <input type="radio" id="dana" name="metode" value="dana" />
+            <label for="dana"><img src="img/payment/dana.png" class="pay-icon" alt="DANA"> DANA</label>
+            <input type="radio" id="linkaja" name="metode" value="linkaja" />
+            <label for="linkaja"><img src="img/payment/linkaja.png" class="pay-icon" alt="LinkAja"> LinkAja</label>
+            <input type="radio" id="ovo" name="metode" value="ovo" />
+            <label for="ovo"><img src="img/payment/ovo.png" class="pay-icon" alt="OVO"> OVO</label>
+            <input type="radio" id="bri" name="metode" value="bri" />
+            <label for="bri"><img src="img/payment/bri.png" class="pay-icon" alt="BRI"> BRI</label>
+            <input type="radio" id="bca" name="metode" value="bca" />
+            <label for="bca"><img src="img/payment/bca.png" class="pay-icon" alt="BCA"> BCA</label>
+            <input type="radio" id="bni" name="metode" value="bni" />
+            <label for="bni"><img src="img/payment/bni.png" class="pay-icon" alt="BNI"> BNI</label>
+          </div>
+        </div>
+
+        <div class="form-step">
+          <h4>5. Detail Kontak</h4>
+          <input type="text" name="whatsapp" id="whatsapp" placeholder="Nomor WhatsApp Aktif" required>
+          <small>*Nomor akan dihubungi jika terdapat masalah</small>
+        </div>
+        <button type="submit" id="pesanBtn" class="pesan-button">Pesan Sekarang!</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Resz.Store - All Rights Reserved.</p>
+  </footer>
+
+  <script src="js/topup.js"></script>
+  <script>
+    const navbar = document.getElementById('navbarLinks');
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const username = localStorage.getItem('username');
+
+    if (isLoggedIn) {
+      navbar.innerHTML = `
+        <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+        <li><a href="topup_ml.html" class="active"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+        <li><a href="history.html"><i class="fas fa-clock"></i><span>History</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+        <li><a href="profile.php?u=${username}"><i class="fas fa-user"></i><span>${username}</span></a></li>
+        <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+      `;
+    } else {
+      navbar.innerHTML = `
+        <li><a href="index.html"><i class="fas fa-home"></i><span>Home</span></a></li>
+        <li><a href="topup_ml.html" class="active"><i class="fas fa-gem"></i><span>Top Up</span></a></li>
+        <li><a href="history.html"><i class="fas fa-clock"></i><span>History</span></a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i><span>Contact</span></a></li>
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i><span>Login</span></a></li>
+        <li><a href="register.html"><i class="fas fa-user-plus"></i><span>Register</span></a></li>
+      `;
+    }
+
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('username');
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
